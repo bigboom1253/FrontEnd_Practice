@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- font 첨부 -->
+        <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">  -->
+        <!-- <link rel="stylesheet" href="style.css"/> -->
+        <title>CSS 실습 57</title>
+        <style>
+            body{
+                margin : 0
+            }
+            .navbar{
+                display : flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #263343;
+                text-decoration: none;
+                padding : 15px 30px;            
+            }
+            .navbar_menu{
+                display: flex;
+                list-style: none; 
+                padding-left : 0;
+            }
+            .navbar_menu li a{
+                text-decoration: none;
+                color : white;
+                padding :8px 12px;
+                font-size: 25px;
+            }
+            .first_body{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: #00B3f2;
+                color : white;
+            }
+            #left_arrow{
+                transform: rotate(180deg);
+            }
+            .introduce{
+                padding-top: 30px;
+                text-align: center;
+            }
+            .introduce #introduce_1{
+                padding: 20px;
+                padding-bottom: 0;
+                font-size: 30px;
+            }
+            .introduce #introduce_2{
+                font-size: 50px;
+            }
+            .introduce #introduce_3{
+                font-size: 15px;
+            }
+            #first_body_image{
+                margin-top: 80px;
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+            }
+            #first_body_image #crop{
+                margin: 0px 0px -30px 0px;
+            }
+            /* div#first_body_image image{
+                position: absolute;
+                clip: rect(0px, 500px, 100px, 100px);
+            } */
+            /* To-Do : 이미지 자르기 */
+            .second_body{
+                display : flex;
+                margin : auto;
+                background-color : white;
+                justify-content: center;
+                padding : 50px;
+
+            }
+            .second_body_block{
+                display: flex;
+                justify-content: space-around;
+    
+            }
+            .second_body_block li{
+                display: flex;
+                text-align: center;
+                /* flex-direction: column; */
+                padding : 10px;
+                margin: 0 auto;
+                list-style: none;
+            }
+
+            .more_btn{
+                border : none;
+                font-size: 20px;
+                padding : 10px;
+                margin : 50px;
+                color: white;
+                background-color: black;
+            }
+            .third_body_title{
+                text-align: center;
+                font-size: 30px;
+                color : gray;
+                padding : 20px;
+                margin-bottom: 30px;
+            }
+            .projects_grid .wrapper{
+                display :grid;
+                grid-template-columns: repeat(5,1fr);
+                
+            }
+            .projects_grid .wrapper> li{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                list-style: none;
+                padding: auto;
+                color : white;
+                text-align: center;
+                min-height: 200px;
+            }
+            .fourth_body{
+                display: flex;
+                justify-content: space-around;
+                background-color: white;
+                padding : 50px;
+            }
+            .fourth_body .present_wordpress{
+                flex : 50%;
+                margin-right: 50px;
+            }
+            .read_more{
+                position: absolute;
+                margin-left: 420px;
+                border : none;
+                font-size: 15px;
+                padding : 10px 20px;
+                color: white;
+                background-color: #384452;
+            }
+            .board_title{
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+            }
+            .haxagon_icon{
+                position:relative;
+                text-align: center;
+
+            }
+            .haxagon_text{
+                position: absolute;
+                top:45%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                padding : 1px;
+            }
+            .board_line{
+                content:"";
+                display: block;
+                width : 300px;
+                border-bottom: 5px solid #263343;
+                margin: 10px 0px;
+                /*To-Do : 오른쪽 정렬 필요 */
+            }
+            .board_post{
+                position: relative;
+                left : -40px;
+                top: -10px;
+            }
+            .board_post >li{
+                list-style: none;
+                /* line-height: 30px; */
+                margin-bottom: 5px;
+                padding : 5px;
+                color : #a6a9ad;
+                border-bottom: 1px groove rgb(253, 251, 251);
+            }
+            a{
+                text-decoration: none;
+                
+            }
+            .fourth_body > div{
+                flex : 25%;
+                margin-right: 20px;
+            }
+            .fifth_body{
+                height: 300px;
+                display: flex;
+                flex-direction : column;
+                justify-content : space-around;
+                align-items: center;
+                padding : 50px;
+                background-image: url(./resource/peoples.png);
+                background-repeat: no-repeat;
+                background-position: bottom;
+                background-color: #00b7fe;
+            }
+            .fifth_body #fifth_body_icon{
+                margin-bottom: -20px;
+            }
+            .sixth_body{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .sixth_body_title{
+                text-align: center;
+                padding: 20px;
+                margin: 30px 30px 10px 30px;
+                color: #6a7077;
+            }
+            .clients_grid{
+                display :grid;
+                grid-template-columns: repeat(4,0.8fr);
+                outline-style: solid white;
+                
+            }
+            .clients_grid > li{
+                text-align: center;
+                list-style: none;
+                /* border: 1px solid #a6a9ad; */
+                padding : 20px;
+                margin : 0px;   
+            }
+            .sixth_body .copyright_bar{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 150px;
+                width: 100%;
+                background-color: #384452;
+            }
+            .sixth_body #copyright_text{
+                color : #a6a9ad;
+                font-size: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="">
+                    <image src=".\resource\logo.png">
+                </a>
+            </div>
+            <ul class="navbar_menu">
+                <li><a href=""><strong>HOME</strong></a></li>
+                <li><a href=""><strong>ABOUT</strong></a></li>
+                <li><a href=""><strong>CONTACT US</strong></a></li>
+            </ul>
+        </nav>
+        <div class ="first_body">
+            <div id ="left_arrow">
+                <a href="">
+                    <image src="./resource/right_thin_arrow.png"></image>
+                </a>
+            </div>
+            <div class ="introduce">
+                <p id="introduce_1">
+                Present your Templates with Style
+                </p>
+                <p id="introduce_2">
+                Eyecatching. Awesome. Pixelperfect.
+                </p>
+                <p id="introduce_3">
+                Whether you require large banners and posters to promote your company or some more subtitle letter heads and</br> 
+                business cards. our highly skilled graphic designers will produce the perfect article for you.
+                </p>
+                <div id="first_body_image">
+                    <div id="crop">
+                        <image src ="./resource/window.png"></image>
+                    </div>
+                </div>
+            </div>
+            <div id="right_arrow">
+                <a href="">
+                    <image src="./resource/right_thin_arrow.png"></image>
+                </a>
+            </div>
+        </div>
+        <div class="second_body">
+                <ul class="second_body_block">
+                    <li>
+                        <div class="second_body_box_1">
+                            <image src="./resource/card_image_1.png"></image>
+                            <p class="second_body_info">
+                                <strong>Several Colour Option</strong>
+                            </p>
+                            <p>We will put together a detatiled and specific</br>
+                                style guide that covers all areas of your</br>
+                                brand to ensure that anything produced in</br>
+                                the future is on brand.
+                            </p>
+                            <button class="more_btn">More Info</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="second_body_box_2">
+                            <image src="./resource/card_image_2.png"></image>
+                            <p class="second_body_info">
+                                <strong>Several Colour Option</strong>
+                            </p>
+                            <p>We will put together a detatiled and specific</br>
+                                style guide that covers all areas of your</br>
+                                brand to ensure that anything produced in</br>
+                                the future is on brand.
+                            </p>
+                            <button class="more_btn">More Info</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="second_body_box_3">
+                            <image src="./resource/card_image_3.png"></image>
+                            <p class="second_body_info">
+                                <strong>Several Colour Option</strong>
+                            </p>
+                            <p>We will put together a detatiled and specific</br>
+                                style guide that covers all areas of your</br>
+                                brand to ensure that anything produced in</br>
+                                the future is on brand.
+                            </p>
+                            <button class="more_btn">More Info</button>
+                        </div>
+                    </li>
+                </ul>   
+        </div>
+        <div class="third_body">
+            <div class="third_body_title"><strong>OUR LATEST PROJECTS</strong></div>
+            <div class="projects_grid">
+                <ul class="wrapper">
+                    <li style="background-color: gray;"></li>
+                    <li style="background-color: darkgray;"></li>
+                    <li style="background-color: #06a8eb;">
+                        <p id="project_title_1" style="font-size: 20px;">
+                            <storng>Untitled Project 01</storng>
+                        </p>
+                        <p id="project_info_1" style="font-size: 15px;">
+                            <span>Logodesign, Webdesign, Graphic</span>
+                        </p>
+                        <p id ="project_like_icon_1">
+                            <span>
+                                <image src= "./resource/heart.png"/ style="color: #6acbf3;">
+                                214Likes
+                            </span>
+                        </p>
+                    </li>
+                    <li style="background-color: darkgray;"></li>
+                    <li style="background-color: gray;"></li>
+                    <li style="background-color: darkgray;"></li>
+                    <li style="background-color: gray;"></li>
+                    <li style="background-color: darkgray;"></li>
+                    <li style="background-color: gray;"></li>
+                    <li style="background-color: darkgray;"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fourth_body">
+            <div class="present_wordpress">
+                <span style="font-size: 25px;"><strong>Getting Started with Wordpress</strong></span>
+                <p style="line-height: 200%;">
+                    We work with clients big and small across a range of sectors and we utilise all
+                    forms of media to get your name out there in a way that;s right for you. We
+                    believe that analysis of your company and your customers is key in responding
+                    effectively to your promotional needs and we will work with you.
+                </p>
+                <button class='read_more'><storng><span>Read More</span></storng></button>
+            </div>
+            <div class="frequently_asked">
+                <div class ="board_title">
+                    <span><strong>Frequently Asked</strong></span>
+                    <div class="haxagon_icon">
+                        <image src="./resource/haxagon.png"/>
+                        <span class="haxagon_text"><strong>5</strong></span>
+                    </div>
+                </div>
+                <div class="board_line">
+                </div>
+                <ul class="board_post">
+                    <li>
+                        <a href=""><span>How to change the website colour?</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>Is my website ready for wordpress?</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>Which version is the latest for WP?</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>Could I translate the site?</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>How do I uwe wordpress plugins?</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="latest_blogposts">       
+                <div class ="board_title">
+                    <span><strong>Latest Blogposts</strong></span>
+                    <div class="haxagon_icon">
+                        <image src="./resource/haxagon.png"/>
+                        <span class="haxagon_text"><strong>9</strong></span>
+                    </div>
+                </div>
+                <div class="board_line">
+                </div>
+                <ul class="board_post">
+                    <li>
+                        <a href=""><span>25 Best Wordpress Themes 2014</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>Awesome Freebies Weekend # 22</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>Design a website in 10 Steps</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>How to install a full Wordpress Theme</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span>Best Free Iconsets for Webdesigner</span></a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+        <div class="fifth_body">
+            <p id="fifth_body_icon">
+                <image src="./resource/_.png"></image>
+            </p>
+            <p id="fifth_body_contents">
+                "Our teams are up to date with the latest technologies, media trends and are keen to prove themselves in</br>
+                this industry and that's what you want from an advertising agency, not somone who is relying on the</br>
+                same way of doing things that worked 10 years, 5 years or even a year ago."</br>
+            </p>
+            <p>
+              <span style="color : white">Jonathan Doe -</span> <span style="color : #384452 "><strong>Webdesigner & Interpreneur @Creative Studios</strong></span>  
+            </p>
+            
+        </div>
+        <div class="sixth_body">
+            <div class="sixth_body_title">
+                <p><strong>SOME OF OUR CLIENTS</strong></p>
+            </div>
+            <div>
+                <ul class="clients_grid">
+                    <li>
+                        <image src="./resource/logo_1.png"></image>
+                    </li>
+                    <li>
+                        <image src="./resource/logo_2.png"></image>
+                    </li>
+                    <li>
+                        <image src="./resource/logo_3.png"></image>
+                    </li>
+                    <li>
+                        <image src="./resource/logo_4.png"></image>
+                    </li>
+                    <li>
+                        <image src="./resource/logo_3.png"></image>
+                    </li>
+                    <li>
+                        <image src="./resource/logo_1.png"></image>
+                    </li>
+                    <li>
+                        <image src="./resource/logo_4.png"></image>
+                    </li>
+                    <li>
+                        <image src="./resource/logo_2.png"></image>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright_bar">
+                <span id="copyright_text">
+                    Copyright @ 2014 by KL-Webmedia | All rights reserved
+                </span>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>네이버 뉴스, 카페 검색폼</title>
+    </head>
+    <body>
+        <div>
+            검색어를 입력하세요.
+        </div>
+        <div>
+            <form action = "https://search.naver.com/search.naver" method="GET">
+                <input type="radio" name="where" value="news">news(뉴스)</input>
+                <input type="radio" name="where" value="cafe">cafe(카페)</input></br>
+                <label for="uri">검색어 입력</label></br>
+                <input id ="query" type ="text" name="query"/></br>
+                <!-- 기간 적용안되는 것 추가 -->
+                <input type="hidden" name="sm" value="tab_opt"/>
+                <input type="hidden" name="sort" value="0"/>
+                <input type="hidden" name="photo" value="0"/>
+                <input type="hidden" name="field" value="0"/>
+                <input type="hidden" name="reporter_article"/>
+                <input type="hidden" name="pd" value="3"/>
+                <!--  -->
+                <label>시작일</label>
+                <input type="text" name="ds">
+                <label>종료일</label>
+                <input type="text" name="de"></br>
+                <input type="submit" value="검색"/> 
+            </form>
+        </div>  
+    </body>
+    
+</html>
