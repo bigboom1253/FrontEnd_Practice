@@ -1,0 +1,17 @@
+ul#gugudan {
+    display: flex;
+}
+/* 단 */
+#gugudan > li {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    list-style: none;
+    padding: 20px;
+}
+
+/* 식 */
+#gugudan > li > li {
+    font-size: 15px;
+    margin-top: 5px;
+}

@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+.resource_image {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    border: none;
+}
+
+.battle_image {
+    display: flex;
+    justify-content: center;
+}
+
+.battle_image > img {
+    padding: 30px;
+}
+
+.battle_result_text {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
